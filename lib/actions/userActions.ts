@@ -189,3 +189,14 @@ export const fetchTotalPricesByMonth = async () => {
     totalCost,
   }));
 };
+
+export async function deleteItem(itemId: string) {
+  try {
+    const del = await prisma.groceryItem.delete({
+      where: {
+        id: itemId,
+      },
+    });
+    revalidatePath("/items");
+  } catch (error) {}
+}

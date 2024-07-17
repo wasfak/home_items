@@ -1,3 +1,4 @@
+import DeleteButton from "@/components/DeleteButton";
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/db/prisma";
 
@@ -25,7 +26,7 @@ export default async function ItemsPage() {
             <p>{item.name}</p>
             <p>{item.price}</p>
 
-            <Button variant="destructive">Delete</Button>
+            <DeleteButton item={item} />
           </div>
         );
       })}
