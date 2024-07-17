@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { addItem } from "@/lib/actions/userActions";
+import LoadingButton from "./LoadingButton";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -80,7 +81,9 @@ export default function ProfileForm() {
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <LoadingButton type="submit" loading={form.formState.isSubmitting}>
+          Submit
+        </LoadingButton>
       </form>
     </Form>
   );
